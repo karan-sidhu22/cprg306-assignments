@@ -8,8 +8,19 @@ import MealIdeas from "./meal-ideas";
 import itemsData from "./items.json";
 
 export default function Page() {
-  const { user } = useUserAuth();
+  // Removed duplicate declaration of user
   const router = useRouter();
+  // In shopping-list/page.js
+  const { user } = useUserAuth();
+
+  useEffect(() => {
+    if (!user) 
+      {
+      console.error("User not authenticated");
+      return;
+      }
+  // ... rest of your Firestore logic
+}, [user]);
 
   // Redirect to the landing page if the user is not logged in
   if (!user) {

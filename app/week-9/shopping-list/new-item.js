@@ -29,12 +29,13 @@ export default function NewItem({ onAddItem }) {
   return (
     <form onSubmit={handleSubmit} className="p-4 bg-white rounded-lg shadow-sm mb-4">
       <div className="mb-4">
-        <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+      // In new-item.js
+        <label htmlFor="item-name" className="block mb-2">
           Item Name
         </label>
         <input
+          id="item-name"
           type="text"
-          id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
